@@ -25,6 +25,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'execjs'
 
 gem 'therubyracer'
+
+gem 'actionmailer'
+
+gem 'pony'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -35,7 +40,7 @@ gem 'therubyracer'
 # gem 'capistrano-rails', group: :development
 group :production do
 	gem 'pg'
-	gem 'rails_12factor'
+	#gem 'rails_12factor'
 end
 
 # Slim
