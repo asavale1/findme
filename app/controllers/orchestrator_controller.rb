@@ -1,13 +1,19 @@
 class OrchestratorController < ApplicationController
 	protect_from_forgery except: :send_location
-	#require "sms_fu"
+	require 'gcm'
+
 	def home
-		#sms_fu = SMSFu::Client.configure(:delivery => :action_mailer)
-		#sms_fu.deliver("4087056374","at&t","text me if you get this test message - Ameya Savale")
+		#gcm = GCM.new(ENV['GCM_FIND_ME_API_KEY'])
+		
 	end
 
 	def send_location
 		puts params
 		render :json => {"test" => "jason"}
+	end
+
+	def register_sender
+		puts params
+		render :json => {"test" => "json"}
 	end
 end
