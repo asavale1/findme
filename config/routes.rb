@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'orchestrator#home'
 
   match '/send_location', to: 'orchestrator#send_location', via: 'post'
+  match '/register_sender', to: 'orchestrator#register_sender', via: 'post'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

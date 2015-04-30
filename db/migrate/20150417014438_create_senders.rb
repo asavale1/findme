@@ -1,8 +1,8 @@
 class CreateSenders < ActiveRecord::Migration
   def change
     create_table :senders do |t|
-      t.integer :phone_number
-
+      t.string :phone_no_cc
+      t.string :phone_with_cc
       t.timestamps null: false
     end
   end

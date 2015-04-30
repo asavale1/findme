@@ -15,18 +15,19 @@ ActiveRecord::Schema.define(version: 20150426014549) do
 
   create_table "locations", force: :cascade do |t|
     t.integer  "sender_id",  limit: 4
-    t.integer  "receiver",   limit: 4
-    t.decimal  "longitude",            precision: 10
-    t.decimal  "latitude",             precision: 10
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.string   "recipient",  limit: 255
+    t.float    "longitude",  limit: 24
+    t.float    "latitude",   limit: 24
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "senders", force: :cascade do |t|
-    t.integer  "phone_number",        limit: 4
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.text     "gcm_registration_id", limit: 65535
+    t.string   "phone_no_cc",   limit: 255
+    t.string   "phone_with_cc", limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.text     "gcm_regid",     limit: 65535
   end
 
 end
