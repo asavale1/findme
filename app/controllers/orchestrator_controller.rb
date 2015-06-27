@@ -26,6 +26,15 @@ class OrchestratorController < ApplicationController
 		
 	end
 
+	def has_account
+		recipient = Sender.where("phone_with_cc = ? OR phone_no_cc = ?", params[:recipient_phone], params[:recipient_phone]).first
+		if recipient.nil?
+			render :json => { "has_account" => false }
+		else
+			render :json => { "has_account" => true }
+		end
+	end
+
 	def register_sender
 		puts params
 		s = Sender.add(params[:phone_no_cc], params[:phone_with_cc], params[:gcm_regid])
