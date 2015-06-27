@@ -29,6 +29,7 @@ class OrchestratorController < ApplicationController
 	def log_location
 		sender = Sender.where(:phone_with_cc => params[:sender_phone]).first
 		Location.add(sender.id, params[:recipient_phone], params[:longitude],, params[:latitude])
+		render :json => {"logged" => true}
 	end
 
 	def has_account
