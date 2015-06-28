@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   match '/send_location', to: 'orchestrator#send_location', via: 'post'
   match '/register_sender', to: 'orchestrator#register_sender', via: 'post'
   match '/has_account', to: 'orchestrator#has_account', via: 'post'
-  #match '/log_location', to: 'orchestrator#log_location', via: 'post'
+  match '/log_location', to: 'orchestrator#log_location', via: 'post'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
