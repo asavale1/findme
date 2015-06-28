@@ -32,7 +32,7 @@ class OrchestratorController < ApplicationController
 		Location.add(sender.id, params[:recipient_phone], params[:longitude],, params[:latitude])
 		render :json => {"logged" => true}
 	end
-
+=end
 	def has_account
 		recipient = Sender.where("phone_with_cc = ? OR phone_no_cc = ?", params[:recipient_phone], params[:recipient_phone]).first
 		puts params
@@ -43,7 +43,7 @@ class OrchestratorController < ApplicationController
 			render :json => { "has_account" => true }
 		end
 	end
-=end
+
 	def register_sender
 		puts params
 		s = Sender.add(params[:phone_no_cc], params[:phone_with_cc], params[:gcm_regid])
