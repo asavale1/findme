@@ -25,14 +25,14 @@ class OrchestratorController < ApplicationController
 		end
 		
 	end
-=begin
+
 	def log_location
 		puts params
 		sender = Sender.where(:phone_with_cc => params[:sender_phone]).first
 		Location.add(sender.id, params[:recipient_phone], params[:longitude],, params[:latitude])
 		render :json => {"logged" => true}
 	end
-=end
+
 	def has_account
 		recipient = Sender.where("phone_with_cc = ? OR phone_no_cc = ?", params[:recipient_phone], params[:recipient_phone]).first
 		puts params
