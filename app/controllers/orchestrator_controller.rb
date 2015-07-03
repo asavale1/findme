@@ -7,7 +7,7 @@ class OrchestratorController < ApplicationController
 	end
 
 	def send_location
-		puts params
+		puts "SEND LOCATION"
 		sender = Sender.where(:phone_with_cc => params[:sender_phone]).first
 		recipient = Sender.where("phone_with_cc = ? OR phone_no_cc = ?", params[:recipient_phone], params[:recipient_phone]).first
 
@@ -19,6 +19,7 @@ class OrchestratorController < ApplicationController
 			gcm = GCM.new(ENV['GCM_FIND_ME_API_KEY'])
 			regids = [recipient.gcm_regid]
 			options = {data: { sender: sender.phone_with_cc, longitude: params[:longitude], latitude: params[:latitude] } }
+			puts options.to_s
 			response = gcm.send(regids, options)
 			puts response
 			render :json => {"has_account" => true}
